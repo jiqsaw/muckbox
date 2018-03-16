@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Babylips.DB.Record>
+@section scripts {
+    <script src="~/Scripts/subPages.js"></script>
+    <script src="~/Scripts/social.js"></script>
+    <script>
+        function deleteMusic(recordId) {
+
+            var result = confirm("Bu kaydı silmek istediğinizden emin misin?");
+
+            if (result) {
+                
+                var postData = { RecordId: recordId };
+
+                $.ajax({
+                    url: '/Mechanic/DeleteMusic',
+                    type: "POST",
+                    data: postData,
+                    dataType: 'json',
+                    success: function (response) {
+
+                        if (response.result == "OK") {
+                            location.reload();
+                        }
+                        else
+                            alert("HATA OLUŞTU! Lütfen daha sonra tekrar deneyiniz.")
+                    },
+                    error: function (response) {
+                        alert("HATA OLUŞTU! Lütfen daha sonra tekrar deneyiniz.");
+                    }
+                });
+            }
+        }
+    </script>
+}
+<div id="PageContainer" class="pageContainer">
+
+    @Html.Partial("Header", new Babylips.Web.Models.HeaderModel { pageItem = Babylips.Web.Models.HeaderModel.pageItems.Muziklerim })
+
+    <!-- Content Begin -->
+        <div class="musicListContainer" id="MusicListContainer">
+            @Html.Partial("CommonLightbox")
+            <div class="musicList">
+                <div class="musicListHeader"></div>
+                <ul>
+                    @{int i = 1;}
+                    @foreach (var item in Model.ToList())
+                    {
+                    <li>
+                        <div class="listCount">@i</div>
+
+                        <div class="songName">@item.Title</div>
+                        <a href="@PathHelper.UrlMuckboxPlayback(SessionManager.GetInstance().User.Data.FirstName, SessionManager.GetInstance().User.Data.LastName, item.Title, item.Id)" class="listenMusic"><span class="listenIcon"><span class="listenText">Dinle</span></span></a>
+                        <a href="javascript:fbShareMusic('@PathHelper.UrlMuckboxPlaybackShort(item.Id, true)', '@item.Title')" class="listenShareFB" data-ga="mymusic-share-facebook"></a>
+                        <a href="javascript:twShareMyMusic('@PathHelper.UrlMuckboxPlaybackShort(item.Id, true)', 'Maybelline Baby Lips Muckbox’la kendi müziğimi yaptım. Adı: @item.Title. Tıkla, dinle, sen de kendi müziğini yap!')" class="listenShareTW" data-ga="mymusic-share-twitter"></a>
+                        <a href="javascript:deleteMusic(@item.Id)" class="listenDelete"></a>
+                    </li>
+                     i++;
+                    }
+                </ul>
+                <a href="@PathHelper.UrlWeb/muckbox" class="btnMakeNewMusicBig" data-ga="muckbox-mymusic-make-new-music">YENİ MÜZİK YAP</a>
+            </div>
+
+        </div>
+    <!-- End of Content -->
+
+    @Html.Partial("Footer")
+</div>
+
+
+
+

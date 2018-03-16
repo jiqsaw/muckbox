@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Babylips - Kendi müzigini yap!</title>
+    @Html.Partial("PageControls/PageHead")
+    @RenderSection("PageMetaOg", false)
+    @Html.Partial("PageControls/PageStyles")
+    @Html.Partial("PageControls/JsGlobal")
+    @Html.Partial("Facebook/Config")
+    @Html.Partial("PageControls/PageScripts")
+    @RenderSection("scripts", required: false)
+    @Html.Partial("PageControls/GA")
+    @RenderSection("pageHead", required: false)
+</head>
+<body>
+@RenderBody()
+</body>
+</html>

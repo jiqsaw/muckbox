@@ -1,0 +1,25 @@
+﻿<script>
+    initShareBox();
+</script>
+<a href="#" onclick="returnHome();" class="closeLightBox" data-ga="muckbox-end-close"></a>
+<div class="congratulations">TEBRİKLER!</div>
+<p>Tüm adımları tamamladın, şimdi sırada müziğini paylaşmak var!</p>
+<div class="shareYourSongForm">
+    <div class="longTextBox">
+        <input type="text" id="SongShareLink" readonly="readonly" value="@SessionManager.GetInstance().LastSavedMusicUrlShort" />
+    </div>
+    <!--<a class="btnCopy" href="#" onclick="CopyToClipboard(); return false;">KOPYALA</a>-->
+    <div class="clear"></div>
+    <a href="javascript:fbShareMusic('@SessionManager.GetInstance().LastSavedMusicUrlShort', '@SessionManager.GetInstance().LastSavedMusicTitle');" class="btnShareFacebook" data-ga="muckbox-end-share-facebook">FACEBOOK'TA PAYLAŞ</a>
+    <a href="javascipt:;" onclick="twShareMyMusic('@SessionManager.GetInstance().LastSavedMusicUrlShort', 'Maybelline Baby Lips Muckbox’la kendi müziğimi yaptım. Adı: @SessionManager.GetInstance().LastSavedMusicTitle. Tıkla, dinle, sen de kendi müziğini yap!');" class="btnShareTwitter" data-ga="muckbox-end-share-twitter">TWİTTER'DA PAYLAŞ</a>
+    <a href="javascipt:;" onclick="Invite();" class="btnInviteFacebook" data-ga="muckbox-end-invite-facebook">ARKADAŞINI DAVET ET</a>
+    <div class="clear"></div>
+</div>
+<div class="seperatorLine "></div>
+<div class="clear"></div>
+<div class="shareYourSongFooter">
+    <a href="#" onclick="returnHome();" class="btnMakeNewMusic" data-ga="muckbox-end-make-new-music">YENİ MÜZİK YAP</a>
+    <a href="http://www.maybelline.com.tr/Urunler/dudak/lip-balm/baby-lips.aspx" target="_blank" class="btnExplore" data-ga="muckbox-end-explore-babylips">BABY LIPS’I KEŞFET</a>
+    <a href="http://www.boyner.com.tr/maybelline.aspx?ProductCategoryId=100000262" target="_blank" class="btnBabylipsBuy" data-ga="muckbox-end-buy-babylips">BABY LIPS SATIN AL</a>
+    <div class="clear"></div>
+</div>

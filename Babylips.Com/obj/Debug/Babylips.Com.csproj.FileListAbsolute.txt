@@ -1,0 +1,9 @@
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\Babylips.Com.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\Babylips.Com.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\LIB.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\Newtonsoft.Json.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\LIB.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Com\bin\Debug\Newtonsoft.Json.xml
+C:\JiqSaw\Projects\Babylips\Babylips.Com\obj\Debug\Babylips.Com.csprojResolveAssemblyReference.cache
+C:\JiqSaw\Projects\Babylips\Babylips.Com\obj\Debug\Babylips.Com.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Com\obj\Debug\Babylips.Com.pdb

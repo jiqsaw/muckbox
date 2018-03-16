@@ -1,0 +1,4 @@
+﻿@model IEnumerable<Babylips.DB.County>
+@if (Model != null) {
+    @Html.DropDownList("CountyId", new SelectList(Model.ToList(), "Id", "CountyName"), "İlçeni Seç", new { tabindex = "5" });
+}

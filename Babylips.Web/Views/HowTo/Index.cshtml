@@ -1,0 +1,20 @@
+﻿@section scripts {
+    <script src="@PathHelper.UrlWeb/Scripts/subPages.js"></script>
+}
+<div id="PageContainer" class="pageContainer">
+    @Html.Partial("Header", new Babylips.Web.Models.HeaderModel { pageItem = Babylips.Web.Models.HeaderModel.pageItems.NasilOynanir })
+
+    <!-- Content Begin -->
+    <div class="howToPlayContainer" id="HowToPlayContainer">
+        @Html.Partial("CommonLightbox")
+        <div class="howToPlayPicture"></div>
+        <div class="howToButtonConainer">
+            <a href="@PathHelper.UrlWeb/muckbox" data-ga="howto-start-now" class="btnStartNow">HEMEN BAŞLA</a>
+            <a class="watchSample" href="#" onclick="OpenLandingVideo(); return false;" id="btnLandingVideo" data-ga="howto-watch-sample">Örnek izle</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <!-- End of Content -->
+
+    @Html.Partial("Footer")
+</div>

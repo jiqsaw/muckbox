@@ -1,0 +1,26 @@
+﻿@model Babylips.Web.Models.HeaderModel
+<div class="pageTopBg">
+    <div class="header">
+        <a href="@PathHelper.UrlWeb/muckbox" class="logoInternal" data-ga="header-nav-home"></a>
+
+        @if (SessionManager.GetInstance().IsFbLogin)
+        {
+            <div class="LoggedInUser">
+                <div class="UserPicture"><img src="@SessionManager.GetInstance().User.Data.PictureUrl" alt="" /></div>
+                <div class="UserFBName">
+                    @SessionManager.GetInstance().User.Data.FirstName @SessionManager.GetInstance().User.Data.LastName
+                </div>
+                <div class="clear"></div>
+            </div>
+        }
+        
+        <div id="SubNavigation" class="navigation" data-selected="@Model.pageItem.ToString()">
+            <a href="@PathHelper.UrlWeb/nasil-oynanir" id="@Babylips.Web.Models.HeaderModel.pageItems.NasilOynanir.ToString()" class="btnHowTo" data-ga="header-nav-howto">NASIL OYNANIR?</a>
+            <a href="@PathHelper.UrlWeb/oduller" id="@Babylips.Web.Models.HeaderModel.pageItems.Oduller.ToString()" class="btnRewards" data-ga="header-nav-rewards">ÖDÜLLER</a>
+            <a href="@PathHelper.UrlWeb/muziklerim" id="@Babylips.Web.Models.HeaderModel.pageItems.Muziklerim.ToString()" class="btnMyMusic" data-ga="header-nav-mymusic">MÜZİKLERİM</a>
+        </div>
+
+        <div class="clear"></div>
+        <div class="userInfoContainer"></div>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+﻿@section scripts {
+<script src="@PathHelper.UrlStatic/scripts/jquery/jquery-ui-1.9.2.min.js" type="text/javascript"></script>
+<script src="@PathHelper.UrlStatic/scripts/jquery/jquery.json-2.4.min.js" type="text/javascript"></script>
+<script src="~/Scripts/mechanicRecord.js?v=1" type="text/javascript"></script>
+<script src="~/Scripts/jquery.mechanic.js?v=1"></script>
+
+<script src="~/Scripts/social.js"></script>
+<script>
+    $(function () {
+        groupHover();
+    });
+    function groupHover() {
+        jQuery('.sample').hover(function () {
+            jQuery(this).siblings('.lipstick').addClass('lipstickHover');
+        }, function () {
+            jQuery(this).siblings('.lipstick').removeClass('lipstickHover');
+        });
+    }
+    function returnHome() {
+        window.location.href = '@PathHelper.UrlWeb/muckbox';
+    }
+</script>
+<script src="~/Scripts/subPages.js"></script>
+}
+<div id="PageContainer" class="pageContainer">
+
+    @Html.Partial("Header", new Babylips.Web.Models.HeaderModel { pageItem = Babylips.Web.Models.HeaderModel.pageItems.None })
+
+    <!-- Content Begin -->
+    <div class="recorderContainer" id="RecorderContainer">
+        <div id="LightBox" class="lightboxOverlay">
+            <!-- Set Song Name -->
+            <div id="SelectSongName" class="lightboxContent"></div>
+            <!-- End Of Set Song Name -->
+            <!-- Address Info -->
+            <div id="AddressForm" class="lightboxContent"></div>
+            <!-- End Of Address Info -->
+            <!-- Conditions Of Participation -->
+            <div id="ConditionsOfParticipation" class="lightboxContent"></div>
+            <!-- End Of Conditions Of Participation -->
+            <!-- Privacy -->
+            <div id="Privacy" class="lightboxContent"></div>
+            <!-- End Of Privacy -->
+        </div>
+        <h1 class="recorderShareDesc">Baby Lips seslerini dudakların üzerine sürükle, farklı ses kombinasyonları dene, kendi müziğini yap!</h1>
+        <div class="recorderHeader">
+            <a class="startRecord" href="#" data-ga="muckbox-record-start"><span></span>KAYDI BAŞLAT</a>
+            <a class="stopRecord" href="#" data-ga="muckbox-record-stop"><span></span>KAYDI DURDUR</a>
+
+            <div class="timeLine">
+                <div class="recordBar">
+                    <div class="recordFill">
+                        <div class="timeTooltip">00:00</div>
+                    </div>
+                </div>
+                <div class="timeLeft">00:00</div>
+            </div>
+
+        </div>
+        <div class="recorderDropContainer">
+            <div class="videoContainer vc1" data-lips-item-no="1" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video1" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a href="#" class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc2" data-lips-item-no="2" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video2" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a href="#" class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc3" data-lips-item-no="3" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video3" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a href="#" class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc4" data-lips-item-no="4" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video4" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc5" data-lips-item-no="5" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video5" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a href="#" class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc6" data-lips-item-no="6" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video6" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="videoToolBar"><a href="#" class="removeVideo"></a></div>
+                <div class="lipsBorder"></div>
+            </div>
+        </div>
+        <div class="recorderButtons">
+            <div class="recordGroup rg1" data-sample-group="1">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+            <div class="recordGroup rg2" data-sample-group="2">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+            <div class="recordGroup rg3" data-sample-group="3">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+            <div class="recordGroup rg4" data-sample-group="4">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+            <div class="recordGroup rg5" data-sample-group="5">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+            <div class="recordGroup rg6" data-sample-group="6">
+                <a class="lipstick"><span></span></a>
+                <a class="sample" href="javascript:;" data-sample-no="1">1</a>
+                <a class="sample" href="javascript:;" data-sample-no="2">2</a>
+                <a class="sample" href="javascript:;" data-sample-no="3">3</a>
+                <a class="sample" href="javascript:;" data-sample-no="4">4</a>
+                <a class="sample" href="javascript:;" data-sample-no="5">5</a>
+                <a class="sample" href="javascript:;" data-sample-no="6">6</a>
+            </div>
+        </div>
+        <video id="videoMetronome" muted><source src="https://s3.eu-central-1.amazonaws.com/wandacdn/muckbox/metronome.mp4" type="video/mp4" /></video>
+    </div>
+
+
+    <!-- End of Content -->
+    @Html.Partial("Footer")
+</div>

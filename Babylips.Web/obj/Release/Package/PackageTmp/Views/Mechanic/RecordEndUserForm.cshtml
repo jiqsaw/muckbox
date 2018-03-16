@@ -1,0 +1,113 @@
+﻿@model Babylips.DB.UserForm
+<script src="~/Scripts/jquery.mask.js"></script>
+<script>
+    $(function () {
+        $('#CityId').on("change", function () {
+            var cityId = $(this).val();
+            if (cityId != null && cityId > 0)
+                $('#ddlCounties').load("/Place/Counties?CityId=" + cityId);
+        });
+        initCheckBox();
+        $('#NameSurname').focus();
+
+        $('#Mobile').mask('000-000-0000');
+        $('#Birthday').mask('00/00/0000');
+    });
+
+    function checkAggrement() {
+
+        if ($('#Agreement').val() != "1") {
+            var ul = $("#ValidateError ul");
+            ul.html('');
+            ul.append("<li>" + "Katılım koşullarını kabul etmelisin" + "</li>");
+            return false;
+        }
+        return true;
+    }
+
+    function formOnSucces() {
+        GATracker('user-form-filled');
+        $('#UserForm').hide();
+        $('#thanks').show();
+    }
+
+    
+
+</script>
+@if (!ViewBag.HasUserForm)
+{
+    <text><div id="userFormArea">
+
+            @using (Ajax.BeginForm(null, null,
+        new AjaxOptions { LoadingElementId = "imgLoading", OnSuccess = "formOnSucces" },
+        new { @id = "UserForm" }))
+            {
+                <a href="#" onclick="returnHome();" class="closeLightBox"></a>
+                <div class="congratulations">TEBRİKLER!</div>
+                <p>
+                    Tüm adımları tamamladın. Ödül kazandığın takdirde sana ulaşabilmemiz için,<br />
+                    şimdi iletişim formunu doldurabilirsin!
+                </p>
+                @Html.ValidationSummary(false, "Tüm alanların doldurulması zorunludur.", new { id = "ValidateError" })
+                <div class="addressForm">
+                    <div class="addressFormLeft">
+                        <div class="shortTextBox">
+                            @*@Html.ValidationMessageFor(model => model.NameSurname)*@
+                            @Html.TextBoxFor(model => model.NameSurname, new { placeholder = "Adın Soyadın", maxlength = "35", tabindex = "1", Value= @SessionManager.GetInstance().User.Data.FirstName + " " + @SessionManager.GetInstance().User.Data.LastName })
+                        </div>
+                        <div class="shortTextBox">
+                            @*@Html.ValidationMessageFor(model => model.Email)*@
+                            @Html.TextBoxFor(model => model.Email, new { placeholder = "E-posta Adresin", maxlength = "50", tabindex = "2", Value=@SessionManager.GetInstance().User.Data.Email })
+                        </div>
+                        <div class="miniTextBox">
+                            @*@Html.ValidationMessageFor(model => model.Mobile)*@
+                            @Html.TextBoxFor(model => model.Mobile, new { placeholder = "Telefonun", maxlength = "50", tabindex = "3" })
+                        </div>
+                        <div class="miniTextBox bDate">
+                            @Html.TextBoxFor(model => model.Birthday, new { placeholder = "Doğum T. (Opsiyonel)", maxlength = "50", tabindex = "4" })
+                        </div>
+                        <div class="checkBox"><input type="hidden" value="0" id="Agreement" /></div>
+                        <label class="checkBoxLabel" for="Agreement">Katılım Koşullarını okudum,<br />kabul ediyorum.</label>
+                    </div>
+
+                    @*@Html.ValidationMessageFor(model => model.CityId)*@
+
+
+                    <div class="addressFormRight">
+                        <div class="selectBox sb1">
+                            @Html.DropDownList("CityId", new SelectList(ViewBag.slCities, "Id", "CityName"), "İlini Seç", new { tabindex = "5" })
+                        </div>
+                        <div id="ddlCounties" class="selectBox sb2">
+
+                            @Html.DropDownList("CountyId", new SelectList(new List<SelectListItem>()), "İlçeni Seç", new { tabindex = "6" })
+
+                        </div>
+                        <div class="clear"></div>
+                        <div class="textAraa">
+                            @Html.TextAreaFor(model => model.Address, new { placeholder = "Adresin", maxlength = "200", tabindex = "7" })
+                        </div>
+                        @*<a class="btnSave" onclick="$('#Userform').submit();" tabindex="7">KAYDET</a>*@
+                        <input class="btnSave" type="submit" onclick="return checkAggrement()" value="KAYDET" />
+
+                        <img id="imgLoading" src="~/Assets/img/loading.gif" style="display: none;" />
+                    </div>
+                    <div class="clear"></div>
+
+
+                </div>
+            }
+
+        </div></text>
+
+    <script src="@PathHelper.UrlStatic/scripts/jquery/jquery.validate.min.js"></script>
+    <script src="@PathHelper.UrlStatic/scripts/jquery/jquery.validate.unobtrusive.min.js"></script>
+    <script src="@PathHelper.UrlStatic/scripts/jquery/jquery.unobtrusive-ajax.min.js"></script>
+
+    <div id="thanks" style="display: none;">
+        @Html.Partial("~/Views/Mechanic/RecordEndThanks.cshtml")
+    </div>
+}
+else
+{
+    @Html.Partial("~/Views/Mechanic/RecordEndThanks.cshtml")
+}

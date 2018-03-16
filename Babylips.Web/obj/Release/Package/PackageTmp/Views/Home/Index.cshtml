@@ -1,0 +1,87 @@
+﻿@section PageMetaOg {
+<meta property="og:title" content="@FbManager.Vars.Facebook_ShareName" />
+<meta property="og:type" content="Website" />
+<meta property="og:site_name" content="@FbManager.Vars.Facebook_ShareName" />
+<meta property="og:url" content="@PathHelper.UrlWeb" />
+<meta property="og:image" content="@FbManager.Vars.Facebook_AppImg " />
+<meta property="og:description" content="@FbManager.Vars.Facebook_ShareDescription" />
+}
+
+@section scripts {
+    <script src="@PathHelper.UrlStatic/facebook/fbLogin.js" type="text/javascript"></script>
+    <script src="@PathHelper.UrlWeb/Scripts/landing.js"></script>
+
+<script>
+    $(function () {
+
+        if (!hasCookie("seenSurvey"))
+            showSurveyLb();
+
+    });
+
+    function survey(answer) {
+        GATracker('Anket-' + answer);
+        setCookie("seenSurvey", 1, 120);
+        $('#SurveyBox').hide();
+    }
+
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    function hasCookie(cname) {
+        var ck = getCookie(cname);
+        return (ck != "")
+    }
+
+    function showSurveyLb() {
+        $('#SurveyBox').show().load("/home/survey", function () {
+            $('#BabyLipsSurvey').fadeIn();
+        });
+    }
+
+</script>
+
+
+
+}
+
+<div id="PageContainer" class="pageContainer">
+    @Html.Partial("CommonLightbox")
+    <div id="SurveyBox" class="surveyOverlay"></div>
+    <div class="pageTopBg pageTopLandingBg">
+        <div id="PlaxContainer" class="plaxContainer">
+            <div class="logo"></div>
+            <div class="babylips1"></div>
+            <div class="babylips2"></div>
+            <div class="babylips3"></div>
+            <div class="babylips4"></div>
+            <div class="babylips5"></div>
+            <div class="babylips6"></div>
+        </div>
+    </div>
+    <div class="landingImage"></div>
+    <div class="landingText">Baby Lips'ini seç, dudakların üzerine sürükle, kendi müzigini yap! En iyi müzigi sen yap, senin adınla TV'de yayınlansın!</div>
+    <div class="landingButtonWrap">
+        
+        <a class="watchSample" href="#" onclick="OpenLandingVideo(); return false;" id="btnLandingVideo" data-ga="landing-watch-sample">Örnek izle</a>
+        <div class="loadingFB" id="fbLoginProcess"></div>
+        <a class="connectWithFB" href="javascript:;" id="fbBtnLogin" data-ga="fb-start-now">Facebook ile bağlan</a>
+    </div>
+    @Html.Partial("Footer")
+</div>

@@ -1,0 +1,52 @@
+﻿<script>
+    var request_id = '';
+    var _urlWeb = "@Babylips.Com.Helpers.PathHelper.UrlWeb";
+    var _urlStatic = "@Babylips.Com.Helpers.PathHelper.UrlStatic";
+
+    var _isLocal = '@LIB.Util.IsLocal().ToString().ToLower()';
+
+    var _fbAppId = '@FbManager.Vars.Facebook_AppId';
+
+    var _fbPageTab = '';
+    var _fbCanvasPage = '';
+
+    var _fbAppImg = _urlWeb + '@FbManager.Vars.Facebook_AppImg';
+
+    var _fbShareName = '@FbManager.Vars.Facebook_ShareName';
+    var _fbShareCaption = '@FbManager.Vars.Facebook_ShareCaption';
+    var _fbShareDescription = '@FbManager.Vars.Facebook_ShareDescription';
+
+    var _fbInviteMsg = '@FbManager.Vars.Facebook_InviteMsg';
+
+    var _fbGraphUrl = "/me/?fields=id,name,first_name,last_name,link,gender,locale,email,picture.type(large)";
+    var _fbExtPerms = "email";
+
+    var _fbLoginUrl = "/Facebook/Login";
+    var _fbLoginCallBack = "/Facebook/LoginCallBack";
+    var _fbErrorPage = _errorPage;
+
+    var _fbLoginButtonId = 'fbBtnLogin';
+    var _fbLoginProcessElementId = 'fbLoginProcess';
+    var _fbLoginProcessHideElementId = 'fbBtnLogin';
+
+    var _fbFuncOnInit = 'fbOnInit';
+
+    var _fbAutoLogin = false;
+    var _fbFuncOnAutoLoginFail = 'fbOnAutoLoginFail';
+
+    var _fbIsWebSite = true;
+
+    var _fbFullCanvas = false;
+    var _fbForcePageTab = false;
+    var _fbForceSsl = false;
+
+    var _fbFuncOnPageLiked = 'fbOnPageLiked';
+    var _fbLikeTriggerLogin = false;
+
+    var _fbOnlyInFb = false;
+    var _fbConsole = true;
+    var _selectedFbUser = {}; //Json
+
+    var _fbIsLogin = '@SessionManager.GetInstance().IsFbLogin.ToString().ToLower()';
+
+</script>

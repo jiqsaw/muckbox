@@ -1,0 +1,276 @@
+﻿@model Babylips.Service.Models.RecordPlayback
+
+@section PageMetaOg {
+    <meta property="og:title" content="Kendi Müziğimi Yaptım!" />
+    <meta property="og:type" content="Website" />
+    <meta property="og:url" content="@Request.Url" />
+    <meta property="og:site_name" content="Baby Lips Muckbox" />
+    <meta property="og:image" content="@FbManager.Vars.Facebook_AppImg" />
+    <meta property="og:description" content="Maybelline Baby Lips Muckbox ile  kendi müziğimi yaptım. Adı: @Model.RecordTitle. Dinlemek için tıkla; hatta sen de kendi müziğini yap!" />
+}
+
+@section scripts {
+    <script src="@PathHelper.UrlStatic/scripts/jquery/jquery.json-2.4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/muckboxMechanic.js?v=1"></script>
+    <script src="/Scripts/muckboxMechanicRecord.js?v=1"></script>
+
+}
+
+<script>
+
+    g_recordData = @Html.Raw(Model.RecordData.ToString());
+
+    $(window).load(function () {
+        initPlayback();
+    });
+
+    var recordedVideoAmount = 0;
+    var loadedVideoAmount = 0;
+
+    function initPlayback() {
+        if (g_recordData.length > 0) {
+
+            for (var i = 0; i < g_recordData.length; i++) {
+
+                var videoIndex = g_recordData[i].videoIndex;
+                var second = g_recordData[i].second;
+                var actionType = g_recordData[i].actionType;
+                var sampleGroup = g_recordData[i].sampleGroup;
+                var sampleNo = g_recordData[i].sampleNo;
+
+                if (videoIndex > -1) {
+                    recordedVideoAmount++;
+                    preLoadShortVideo(sampleGroup, sampleNo);
+                }
+            }
+
+        }
+    }
+
+    function preLoadShortVideo(sampleGroup, sampleNo) {
+        var r = new XMLHttpRequest();
+        r.onreadystatechange = function () {
+            if (r.readyState == 4 && r.status == 200) {
+                //console.log("video(s) request completed");
+            }
+        }
+        r.onload = function () {
+            //document.getElementById(vidId).src = pathVideoRoot + vidPath;
+            //console.log("game: video binded");
+            OnPreShorVideoLoaded(sampleGroup, sampleNo);
+        };
+
+        try {
+
+            var vPath = getSamplePath(sampleGroup, sampleNo)
+            r.open("GET", vPath);
+            r.responseType = "blob";
+            r.send();
+
+        } catch (e) {
+            OnPreShorVideoLoaded(sampleGroup, sampleNo);
+        }
+
+
+    }
+
+    function OnPreShorVideoLoaded(sampleGroup, sampleNo) {
+       //console.log("video loaded: " + sampleGroup + "/" + sampleNo);
+
+        loadedVideoAmount++;
+        if (loadedVideoAmount == recordedVideoAmount)
+            OnAllRecordedVideoLoaded();
+    }
+
+    function OnAllRecordedVideoLoaded() {
+
+        $('.playLoading').fadeOut();
+
+        videoMetronome.play();
+        playbackStart();
+       //console.log("all recorded video loaded!");
+
+    }
+
+
+    function addTo(videoIndex, sampleGroup, sampleNo) {
+
+       //console.log("addTo: " + videoIndex + " " + sampleNo)
+
+        var vidItemObj = $('.vc' + videoIndex);
+
+        $(vidItemObj).attr("data-lips-sample-group", sampleGroup);
+        $(vidItemObj).attr("data-lips-sample-no", sampleNo);
+        $(vidItemObj).attr("data-lips-has-item", true);
+
+        $(vidItemObj).children("video").attr("data-loaded", true); //**
+
+        $(vidItemObj).addClass('group' + sampleGroup); // Add group flag
+
+        $(vidItemObj).children('.lipsBorder').show(); // Border Active Video
+
+        $(vidItemObj).children(".vidLoading").show(); // Show Preloading
+
+        playShortVideo($(vidItemObj), sampleGroup, sampleNo);
+    }
+
+    function removeFrom(videoIndex) {
+
+        var lipsItem = $('.vc' + videoIndex);
+
+        var sampleGroup = lipsItem.attr("data-lips-sample-group");
+        var sampleNo = lipsItem.attr("data-lips-sample-no");
+
+        $(lipsItem).removeClass('group' + sampleGroup); // Remove group flag
+
+        // Hide Active Border
+        $(lipsItem).children('.lipsBorder').hide();
+
+        // Reset Container
+        lipsItem.attr("data-lips-has-item", false);
+        lipsItem.attr("data-lips-sample-group", 0);
+        lipsItem.attr("data-lips-sample-no", 0);
+        lipsItem.attr("data-playing", false);
+
+        $(lipsItem).children(".vidLoading").hide(); // Hide Loading
+
+       //console.log(lipsItem);
+
+        var lipsItemVideo = $(lipsItem).children("video"); // Reset Video
+        var lipsItemVideoId = $(lipsItem).children("video").attr('id');
+       //console.log(lipsItemVideo);
+
+        document.getElementById(lipsItemVideoId).pause();
+        //$(lipsItemVideo)[0].pause();
+
+        $(lipsItemVideo).children("source").attr("src", "");
+        $(lipsItemVideo).attr("data-loaded", false);
+        $(lipsItemVideo).hide(); // Hide Video
+    }
+
+    function playbackStart() {
+
+        recordDuration = g_recordData[g_recordData.length - 1].second + 1;
+        
+        timerUpdate();
+        vLoopEnd();
+    }
+
+    function timerOnChangeFire() {
+        for (var i = 0; i < g_recordData.length; i++) {
+            if (g_recordData[i].videoIndex != -1) {
+                if (g_recordData[i].second == second) {
+
+                    if (g_recordData[i].actionType == g_actionType.add)
+                        addTo(g_recordData[i].videoIndex, g_recordData[i].sampleGroup, g_recordData[i].sampleNo);
+                    else if (g_recordData[i].actionType == g_actionType.remove)
+                        removeFrom(g_recordData[i].videoIndex);
+
+                }
+            }
+        }
+    }
+
+    function playbackEnd() {
+
+        recordBarReset();
+        allVideoPause();
+       //console.log("playback end!");
+
+        $('.playAgain').fadeIn();
+        $('.btnPlayAgain').on("click", function () {
+            location.reload();
+        })
+    }
+
+
+</script>
+
+<div id="PageContainer" class="pageContainer">
+
+    @Html.Partial("Header", new Babylips.Web.Models.HeaderModel { pageItem = Babylips.Web.Models.HeaderModel.pageItems.None })
+
+    <!-- Content Begin -->
+    <div class="playerContainer">
+        @Html.Partial("CommonLightbox")
+
+        @if ((!SessionManager.GetInstance().IsFbLogin) || (Model.ByUserId != SessionManager.GetInstance().User.Data.Id))
+        {
+            <h1 class="playerShareDesc">Arkadaşın Muckbox ile kendi müziğini yaptı!</h1>
+        }
+
+        <div class="playerHeader">
+            <div class="userAvatar"><img src="@Model.ByUserPicture" alt="" /></div>
+
+            <div class="userInfo">
+                <div class="userSongName">@Model.RecordTitle</div>
+                <div class="userName">@Model.ByUserName @Model.ByUserLastName</div>
+            </div>
+
+            <div class="timeLine">
+                <div class="recordBar">
+                    <div class="recordFill">
+                        <div class="timeTooltip">00:00</div>
+                    </div>
+                </div>
+                <div class="timeLeft">00:00</div>
+            </div>
+
+        </div>
+        <div class="playerDropContainer">
+            <div class="videoContainer vc1" data-lips-item-no="1" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video1" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc2" data-lips-item-no="2" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video2" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc3" data-lips-item-no="3" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video3" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc4" data-lips-item-no="4" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video4" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc5" data-lips-item-no="5" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video5" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+            <div class="videoContainer vc6" data-lips-item-no="6" data-lips-has-item="false" data-lips-sample-group="0" data-lips-sample-no="0" data-playing="false">
+                <video id="video6" data-loaded="false"><source src="" type="video/mp4" /></video>
+                <div class="vidLoading"></div>
+                <div class="lipsBorder"></div>
+            </div>
+
+            <video id="videoMetronome" muted><source src="https://s3.eu-central-1.amazonaws.com/wandacdn/muckbox/metronome.mp4" type="video/mp4" /></video>
+
+
+            <div class="playAgain">
+                <a href="javascript:;" class="btnPlayAgain"></a>
+            </div>
+            <div class="playLoading">
+                <div class="playLoadingIndicator"></div>
+            </div>
+        </div>
+
+
+        @if ((!SessionManager.GetInstance().IsFbLogin) || (Model.ByUserId != SessionManager.GetInstance().User.Data.Id))
+        {
+            <a href="@PathHelper.UrlWeb/muckbox" class="doitYourself">SEN DE YAP</a>
+        }
+        else
+        {
+            <a href="@PathHelper.UrlWeb/muckbox" class="btnMakeNewMusicBig">SENDE YAP</a>
+        }
+    </div>
+    <!-- End of Content -->
+    @Html.Partial("Footer")
+
+</div>

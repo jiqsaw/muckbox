@@ -1,0 +1,13 @@
+﻿@if (SessionManager.GetInstance().IsFbLogin)
+{        
+<section class="userLogonArea">
+
+    <figure>        
+        <img src="@SessionManager.GetInstance().User.Data.PictureUrl" alt="" />
+        <figcaption>
+            @SessionManager.GetInstance().User.Data.FirstName @SessionManager.GetInstance().User.Data.LastName
+        </figcaption>
+    </figure>
+
+</section>
+}

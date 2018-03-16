@@ -1,0 +1,69 @@
+﻿<script>
+
+    // Save Music Title
+    $(function () {
+        $('#txtMusicTitle').focus();
+    });
+
+    // Save Method
+    function SaveMusic() {
+        var recordTitle = $('#txtMusicTitle').val();
+        console.log("inSaveMusic");
+        var postData = { RecordTitle: recordTitle, RecordData: $.toJSON(g_recordData) };
+        $.ajax({
+            url: "/Mechanic/SaveMusic",
+            type: "POST",
+            data: postData,
+            dataType: 'json',
+            success: function (response) {
+                if (response.result == "OK") {
+                    // Music Saved
+                    OnMusicSaved();
+                }
+                else {
+                    throw "KAYIT YAPILIRKEN HATA OLUŞTU!";
+                }
+            },
+            error: function (response) {
+
+                alert("Bir Hata Oluştu");
+                //console.log("ERR: " + response.result);
+                locatio.href = "/";
+            }
+        });
+    }
+
+    // On Music Saved
+    function OnMusicSaved() {
+
+        //console.log('music saved');
+
+        // Clear Textbox
+        $('#txtMusicTitle').val('');
+        // Hide Popup
+        $('#LightBox > div').hide();
+
+        // If user not fill the form before
+        if (true) {
+            $('#AddressForm').fadeIn(fadeInTime);
+            $('#AddressForm').load("/Mechanic/RecordEndUserForm");
+        } else {
+            $('#LightBox').hide(); // Hide Lightbox
+        }
+
+        // Go to my music
+    }
+</script>
+<a href="#" onclick="returnHome();" class="closeLightBox"></a>
+<div class="congratulations">TEBRİKLER!</div>
+<p>
+    Kaydını başarıyla tamamladın, müziğini oluşturdun!<br />
+    Şimdi sırada ona bir isim bulmak var.<br />
+    İsmi ne olsun?
+</p>
+<div class="setSongNameForm">
+    <div class="shortTextBox">
+        <input type="text" id="txtMusicTitle" maxlength="12" value="" />
+    </div>
+    <a class="btnContinue" id="btnSendMusicTitle" href="javascript:SaveMusic();" data-ga="muckbox-end-set-title">DEVAM ET</a>
+</div>

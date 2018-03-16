@@ -1,0 +1,9 @@
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\FbManager.dll
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\FbManager.pdb
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\LIB.dll
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\Newtonsoft.Json.dll
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\LIB.pdb
+C:\JiqSaw\Projects\Babylips\FbManager\bin\Release\Newtonsoft.Json.xml
+C:\JiqSaw\Projects\Babylips\FbManager\obj\Release\FbManager.csprojResolveAssemblyReference.cache
+C:\JiqSaw\Projects\Babylips\FbManager\obj\Release\FbManager.dll
+C:\JiqSaw\Projects\Babylips\FbManager\obj\Release\FbManager.pdb

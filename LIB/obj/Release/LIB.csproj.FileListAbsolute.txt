@@ -1,0 +1,6 @@
+C:\JiqSaw\Projects\Babylips\LIB\bin\Release\LIB.dll
+C:\JiqSaw\Projects\Babylips\LIB\bin\Release\LIB.pdb
+C:\JiqSaw\Projects\Babylips\LIB\bin\Release\Newtonsoft.Json.dll
+C:\JiqSaw\Projects\Babylips\LIB\bin\Release\Newtonsoft.Json.xml
+C:\JiqSaw\Projects\Babylips\LIB\obj\Release\LIB.dll
+C:\JiqSaw\Projects\Babylips\LIB\obj\Release\LIB.pdb

@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{52D93361-7C33-4BEE-8855-1E61B1A51100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LIB", "LIB\LIB.csproj", "{B58853B4-B9E4-403D-B4BF-0A6068E2A49F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Babylips.DB", "Babylips.DB\Babylips.DB.csproj", "{140F1EB0-56A2-4479-905D-8CED2C725D0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Babylips.Service", "Babylips.Service\Babylips.Service.csproj", "{8FDF614F-07A7-4469-992F-9AB84115C9B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Babylips.Com", "Babylips.Com\Babylips.Com.csproj", "{317D4D37-1F0C-493B-BFB9-433C65F9E240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Babylips.Web", "Babylips.Web\Babylips.Web.csproj", "{4DE7676B-BAA7-498B-B968-2531054A176A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FbManager", "FbManager\FbManager.csproj", "{B70B3267-37A3-469C-BD33-C9346C042981}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://wd1.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Babylips.Com\\Babylips.Com.csproj
+		SccProjectName1 = Babylips.Com
+		SccLocalPath1 = Babylips.Com
+		SccProjectUniqueName2 = Babylips.DB\\Babylips.DB.csproj
+		SccProjectName2 = Babylips.DB
+		SccLocalPath2 = Babylips.DB
+		SccProjectUniqueName3 = Babylips.Service\\Babylips.Service.csproj
+		SccProjectName3 = Babylips.Service
+		SccLocalPath3 = Babylips.Service
+		SccProjectUniqueName4 = Babylips.Web\\Babylips.Web.csproj
+		SccProjectName4 = Babylips.Web
+		SccLocalPath4 = Babylips.Web
+		SccProjectUniqueName5 = LIB\\LIB.csproj
+		SccProjectName5 = LIB
+		SccLocalPath5 = LIB
+		SccProjectUniqueName6 = TestConsole\\TestConsole.csproj
+		SccProjectName6 = TestConsole
+		SccLocalPath6 = TestConsole
+		SccProjectUniqueName7 = FbManager\\FbManager.csproj
+		SccProjectName7 = FbManager
+		SccLocalPath7 = FbManager
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52D93361-7C33-4BEE-8855-1E61B1A51100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D93361-7C33-4BEE-8855-1E61B1A51100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D93361-7C33-4BEE-8855-1E61B1A51100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D93361-7C33-4BEE-8855-1E61B1A51100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B58853B4-B9E4-403D-B4BF-0A6068E2A49F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B58853B4-B9E4-403D-B4BF-0A6068E2A49F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B58853B4-B9E4-403D-B4BF-0A6068E2A49F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B58853B4-B9E4-403D-B4BF-0A6068E2A49F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{140F1EB0-56A2-4479-905D-8CED2C725D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140F1EB0-56A2-4479-905D-8CED2C725D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140F1EB0-56A2-4479-905D-8CED2C725D0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140F1EB0-56A2-4479-905D-8CED2C725D0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDF614F-07A7-4469-992F-9AB84115C9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDF614F-07A7-4469-992F-9AB84115C9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDF614F-07A7-4469-992F-9AB84115C9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDF614F-07A7-4469-992F-9AB84115C9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317D4D37-1F0C-493B-BFB9-433C65F9E240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317D4D37-1F0C-493B-BFB9-433C65F9E240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317D4D37-1F0C-493B-BFB9-433C65F9E240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317D4D37-1F0C-493B-BFB9-433C65F9E240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DE7676B-BAA7-498B-B968-2531054A176A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DE7676B-BAA7-498B-B968-2531054A176A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DE7676B-BAA7-498B-B968-2531054A176A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DE7676B-BAA7-498B-B968-2531054A176A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B70B3267-37A3-469C-BD33-C9346C042981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B70B3267-37A3-469C-BD33-C9346C042981}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B70B3267-37A3-469C-BD33-C9346C042981}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B70B3267-37A3-469C-BD33-C9346C042981}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

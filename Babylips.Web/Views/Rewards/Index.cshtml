@@ -1,0 +1,17 @@
+﻿@section scripts {
+    <script src="@PathHelper.UrlWeb/Scripts/subPages.js"></script>
+}
+<div id="PageContainer" class="pageContainer">
+    
+    @Html.Partial("Header", new Babylips.Web.Models.HeaderModel { pageItem = Babylips.Web.Models.HeaderModel.pageItems.Oduller })
+
+    <!-- Content Begin -->
+    <div class="rewardsContainer" id="RewardsContainer">
+        @Html.Partial("CommonLightbox")
+        <div class="rewardsPicture"></div>
+        <a href="@PathHelper.UrlWeb/muckbox" class="btnStartNow">HEMEN BAŞLA</a>
+    </div>
+    <!-- End of Content -->
+
+    @Html.Partial("Footer")
+</div>

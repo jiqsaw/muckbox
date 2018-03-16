@@ -1,0 +1,10 @@
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\Babylips.DB.dll.config
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\Babylips.DB.dll
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\Babylips.DB.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\EntityFramework.dll
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\EntityFramework.xml
+C:\JiqSaw\Projects\Babylips\Babylips.DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\JiqSaw\Projects\Babylips\Babylips.DB\obj\Debug\Babylips.DB.dll
+C:\JiqSaw\Projects\Babylips\Babylips.DB\obj\Debug\Babylips.DB.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.DB\obj\Debug\Babylips.DB.csprojResolveAssemblyReference.cache

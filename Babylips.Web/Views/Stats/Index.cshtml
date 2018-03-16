@@ -1,0 +1,30 @@
+﻿@model Babylips.Service.Models.StatsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <style>
+
+        body, html { padding: 10px; font-family: Calibri, Arial; font-size: 25px; }
+        span.data { font-weight: bold; font-size: 30px; }
+
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Babylips Stats</title>
+</head>
+<body>
+
+    <span>Toplam Üye Sayısı: </span> <span class="data"> @String.Format("{0:0,0}", Model.ToplamUyeSayisi) </span> <br /><br />
+    <span>Kaydedilen Müzik Sayısı: </span> <span class="data"> @String.Format("{0:0,0}", Model.KaydedilenMuzikSayisi) </span> <br /><br />
+    <span>Doldurulan Form Sayısı: </span> <span class="data"> @String.Format("{0:0,0}", Model.DoldurulanFormSayisi) </span> <br /><br />
+
+
+
+</body>
+</html>

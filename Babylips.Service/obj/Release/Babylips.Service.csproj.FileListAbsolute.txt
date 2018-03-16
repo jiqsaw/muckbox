@@ -1,0 +1,17 @@
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.Service.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.Service.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.Com.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.DB.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\EntityFramework.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\FbManager.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\LIB.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Newtonsoft.Json.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.Com.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Babylips.DB.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\FbManager.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\LIB.pdb
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\EntityFramework.xml
+C:\JiqSaw\Projects\Babylips\Babylips.Service\bin\Release\Newtonsoft.Json.xml
+C:\JiqSaw\Projects\Babylips\Babylips.Service\obj\Release\Babylips.Service.csprojResolveAssemblyReference.cache
+C:\JiqSaw\Projects\Babylips\Babylips.Service\obj\Release\Babylips.Service.dll
+C:\JiqSaw\Projects\Babylips\Babylips.Service\obj\Release\Babylips.Service.pdb

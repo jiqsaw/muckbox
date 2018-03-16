@@ -1,0 +1,5 @@
+C:\JiqSaw\Projects\Babylips\TestConsole\bin\Debug\TestConsole.dll
+C:\JiqSaw\Projects\Babylips\TestConsole\bin\Debug\TestConsole.pdb
+C:\JiqSaw\Projects\Babylips\TestConsole\obj\Debug\TestConsole.dll
+C:\JiqSaw\Projects\Babylips\TestConsole\obj\Debug\TestConsole.pdb
+C:\JiqSaw\Projects\Babylips\TestConsole\obj\Debug\TestConsole.csprojResolveAssemblyReference.cache
